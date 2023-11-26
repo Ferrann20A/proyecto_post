@@ -11,6 +11,7 @@ export function Formulario() {
         setSubmitSuccess(true);
         console.log(data);
     };
+
     return (
         <>
             <div className="container" style={{ width: "55rem" }}>
@@ -41,7 +42,7 @@ export function Formulario() {
                         </div>
                     ) : (
                         <form className="border border-2 border-warning rounded p-5" onSubmit={handleSubmit(onSubmit)}>
-                            <div className="form-group">
+                            <div>
                                 <label className="form-label">Nombre</label>
                                 <br /><input className="form-control"
                                     {...register('nombre', {
@@ -52,13 +53,12 @@ export function Formulario() {
                                         }
                                     })}
                                 />
-                                <p >{errors.nombre?.message}</p>
+                                <p className="text-danger">{errors.nombre?.message}</p>
                             </div>
 
                             <div>
                                 <label className="form-label">Email</label>
                                 <br /><input className="form-control" type="email" {...register('email')} />
-                                <p className="text-danger">{errors.email?.message}</p>
                             </div>
 
                             <div>
